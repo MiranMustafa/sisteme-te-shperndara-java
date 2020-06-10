@@ -24,6 +24,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.sql.DataSource;
@@ -52,6 +53,11 @@ public class Main {
   String index() {
     return "index";
   }
+
+ @GetMapping("/getDummyUser")
+ String dummyUser() {
+    return "Dummy user";
+ }
 
   @RequestMapping("/db")
   String db(Map<String, Object> model) {
