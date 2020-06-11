@@ -57,12 +57,13 @@ public class Main {
     return "index";
   }
 
- @GetMapping("/getDummyUser")
+ @GetMapping("/getData")
  @ResponseBody
- HashMap<String, String> dummyUser() {
-    HashMap<String, String> dummyResponse = new HashMap<>();
-    dummyResponse.put("status" , "Ok");
-    return dummyResponse;
+ HashMap<String, String> getData() {
+    HashMap<String, String> data = new HashMap<>();
+    data.put("time" , String.valueOf(System.currentTimeMillis()));
+    data.put("OS" , System.getProperty("os.name"));
+    return data;
  }
 
   @RequestMapping("/db")
