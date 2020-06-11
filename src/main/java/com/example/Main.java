@@ -26,6 +26,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -33,6 +35,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 @Controller
@@ -55,8 +58,11 @@ public class Main {
   }
 
  @GetMapping("/getDummyUser")
- String dummyUser() {
-    return "Dummy user";
+ @ResponseBody
+ HashMap<String, String> dummyUser() {
+    HashMap<String, String> dummyResponse = new HashMap<>();
+    dummyResponse.put("status" , "Ok");
+    return dummyResponse;
  }
 
   @RequestMapping("/db")
